@@ -5,6 +5,7 @@ metadata:
   labels:
     app: flaskdemo
   name: flaskdemo
+  namespace: temp
 spec:
   replicas: 1
   selector:
@@ -40,3 +41,13 @@ spec:
     targetPort: 5000
   selector:
     app: flaskdemo
+   affinity:
+     podAffinity:
+       requiredDuringSchedulingIgnoredDuringExecution:
+       - labelSelector:
+           matchExpressions:
+           - key: app
+             operator: In
+             values:
+             - flaskdemo
+         topologyKey: "kubernetes.io/aws-ebs"
