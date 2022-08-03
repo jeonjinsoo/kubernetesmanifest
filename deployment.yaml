@@ -24,7 +24,7 @@ spec:
         resources: {}
         volumeMounts:
         - name: aws-sc-ebs-pvc-flask
-          mountPath: /app
+          mountPath: /data
       volumes:
       - name: aws-sc-ebs-pvc-flask
         persistentVolumeClaim:
