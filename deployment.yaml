@@ -23,12 +23,12 @@ spec:
         name: flaskdemo
         resources: {}
         volumeMounts:
-        - mountPath: /data
-        name: gp2
-     volumes:
-     - name: gp2
-     persistentVolumeClaim:
-      claimName: gp2
+        - name: aws-sc-ebs-pvc-flask
+          mountPath: /data
+      volumes:
+      - name: aws-sc-ebs-pvc-flask
+        persistentVolumeClaim:
+          claimName: aws-sc-ebs-pvc
 ---
 apiVersion: v1
 kind: Service
