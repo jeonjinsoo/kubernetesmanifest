@@ -22,6 +22,10 @@ spec:
         name: flaskdemo
         resources: {}
 status: {}
+      volumes:
+      - name: ebs
+        persistentVolumeClaim:
+          claimName: ebs-pvc
 ---
 apiVersion: v1
 kind: Service
