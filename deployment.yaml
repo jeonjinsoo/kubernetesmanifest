@@ -19,7 +19,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: proddler/test:7
+      - image: proddler/test:8
         name: flaskdemo
         resources: {}
         volumeMounts:
