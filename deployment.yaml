@@ -5,7 +5,7 @@ metadata:
   labels:
     app: flaskdemo
   name: flaskdemo
-  namespace: temp
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -22,11 +22,13 @@ spec:
       - image: proddler/test:7
         name: flaskdemo
         resources: {}
-status: {}
-      volumes:
-      - name: ebs
-        persistentVolumeClaim:
-          claimName: ebs-pvc
+        volumeMounts:
+        - mountPath: /data
+        name: gp2
+     volumes:
+     - name: gp2
+     persistentVolumeClaim:
+      claimName: gp2
 ---
 apiVersion: v1
 kind: Service
@@ -41,13 +43,3 @@ spec:
     targetPort: 5000
   selector:
     app: flaskdemo
-   affinity:
-     podAffinity:
-       requiredDuringSchedulingIgnoredDuringExecution:
-       - labelSelector:
-           matchExpressions:
-           - key: app
-             operator: In
-             values:
-             - flaskdemo
-         topologyKey: "kubernetes.io/aws-ebs"
