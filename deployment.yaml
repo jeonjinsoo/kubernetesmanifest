@@ -20,17 +20,7 @@ spec:
       containers:
       - image: proddler/test:16
         name: flaskdemo
-        resources: {}
-        env:
-        - name: DB_USER
-          value: root
-        - name: DB_PASSWORD
-          value: "189756"
-        - name: DB_NAME
-          value: kudb
-        - name: DB_HOST
-          value: mysql
-        
+        resources: {}     
 status: {}
 ---
 apiVersion: v1
