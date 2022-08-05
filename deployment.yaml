@@ -22,13 +22,7 @@ spec:
       - image: proddler/test:12
         name: flaskdemo
         resources: {}
-        volumeMounts:
-        - name: aws-sc-ebs-pvc-flask
-          mountPath: /data
-      volumes:
-      - name: aws-sc-ebs-pvc-flask
-        persistentVolumeClaim:
-          claimName: aws-sc-ebs-pvc
+
 ---
 apiVersion: v1
 kind: Service
